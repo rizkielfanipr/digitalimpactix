@@ -5,6 +5,7 @@ import Template from './components/Template';
 import Faq from './components/Faq';
 import Contact from './components/Contact';
 import FloatingWhatsApp from './components/Floating';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Faq />
       <Contact />
       <FloatingWhatsApp />
+      <Footer />
     </div>
   );
 }
