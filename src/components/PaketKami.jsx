@@ -45,6 +45,17 @@ const packages = [
       { name: "Support 24/7", available: true },
     ],
   },
+  {
+    id: 5,
+    name: "Undangan Digital",
+    price: "Rp 750.000",
+    services: [
+      { name: "Desain Unik", available: true },
+      { name: "Custom Domain", available: true },
+      { name: "SEO Optimized", available: true },
+      { name: "QR Code Generator", available: true },
+    ],
+  },
 ];
 
 const PackageCard = ({ name, price, services }) => (
@@ -82,7 +93,7 @@ const PaketKami = () => {
         <h2 className="text-2xl sm:text-4xl font-bold text-center text-[#500073] mb-8">
           Paket Kami
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
           {packages.map((pkg) => (
             <PackageCard
               key={pkg.id}

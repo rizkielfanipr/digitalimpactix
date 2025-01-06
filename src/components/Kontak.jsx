@@ -1,145 +1,93 @@
-import React, { useState } from 'react';
-import { FaPaperPlane } from 'react-icons/fa';
+import React from 'react';
+import { FaUser, FaEnvelope, FaCommentAlt } from 'react-icons/fa';
 
-const ContactUs = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    topic: '',
-    message: ''
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Process form data here, like sending it to an API
-    console.log('Form Submitted:', formData);
-  };
-
+const ContactForm = () => {
   return (
     <section className="font-poppins py-12">
-      <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-2xl sm:text-4xl font-bold text-center text-[#500073] mb-8">
-          Contact Us
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-6">
-          {/* Left side: Contact form */}
-          <div>
-            <h3 className="text-xl font-semibold text-[#500073] mb-4">Get in Touch</h3>
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
+      <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Form Section */}
+        <div>
+          <h2 className="text-2xl sm:text-4xl font-bold text-center text-[#500073] mb-8">
+            Contact Us
+          </h2>
+          <form>
+            {/* Container for all Fields */}
+            <div className="bg-[#500073] p-8 rounded-lg shadow-lg">
+              {/* Name Field */}
+              <div className="form-control w-full max-w-xs mb-4">
+                <div className="label">
+                  <span className="label-text text-white">What is your name?</span>
+                </div>
                 <input
                   type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-[#500073] focus:border-[#500073]"
-                  placeholder="Enter your name"
+                  placeholder="Type here"
+                  className="input input-bordered w-full max-w-xs"
                 />
               </div>
 
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
+              {/* Email Field */}
+              <div className="form-control w-full max-w-xs mb-4">
+                <div className="label">
+                  <span className="label-text text-white">What is your email?</span>
+                </div>
                 <input
                   type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-[#500073] focus:border-[#500073]"
-                  placeholder="Enter your email"
+                  placeholder="Type here"
+                  className="input input-bordered w-full max-w-xs"
                 />
               </div>
 
-              <div>
-                <label htmlFor="topic" className="block text-sm font-medium text-gray-700">Topic</label>
-                <select
-                  id="topic"
-                  name="topic"
-                  value={formData.topic}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-[#500073] focus:border-[#500073]"
-                >
-                  <option value="">Choose a topic</option>
-                  <option value="Billing">Billing</option>
-                  <option value="Technical Support">Technical Support</option>
-                  <option value="General Inquiry">General Inquiry</option>
+              {/* Topic Field */}
+              <div className="form-control w-full max-w-xs mb-4">
+                <div className="label">
+                  <span className="label-text text-white">Topic of your question</span>
+                </div>
+                <select className="select select-bordered w-full max-w-xs">
+                  <option disabled selected>Choose a topic</option>
+                  <option>General Inquiry</option>
+                  <option>Support</option>
+                  <option>Feedback</option>
                 </select>
               </div>
 
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700">Message</label>
+              {/* Message Field */}
+              <div className="form-control w-full max-w-xs mb-4">
+                <div className="label">
+                  <span className="label-text text-white">Your message</span>
+                </div>
                 <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows="4"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-[#500073] focus:border-[#500073]"
-                  placeholder="Write your message"
-                />
+                  placeholder="Type your message here"
+                  className="textarea textarea-bordered w-full max-w-xs"
+                ></textarea>
               </div>
 
-              <button type="submit" className="w-full py-2 px-4 bg-[#500073] text-white font-semibold rounded-lg hover:bg-[#6a1f9c] transition-colors duration-300">
-                Send <FaPaperPlane className="inline-block ml-2" />
-              </button>
-            </form>
-          </div>
-
-          {/* Right side: FAQ section */}
-          <div>
-            <h3 className="text-xl font-semibold text-[#500073] mb-4">FAQ</h3>
-            <div className="space-y-4">
-              <details className="group border-b border-gray-200 pb-4">
-                <summary className="cursor-pointer text-lg font-medium text-gray-900 group-open:text-[#500073]">
-                  What is the return policy?
-                </summary>
-                <p className="mt-2 text-gray-600">Our return policy allows returns within 30 days of purchase.</p>
-              </details>
-
-              <details className="group border-b border-gray-200 pb-4">
-                <summary className="cursor-pointer text-lg font-medium text-gray-900 group-open:text-[#500073]">
-                  How can I track my order?
-                </summary>
-                <p className="mt-2 text-gray-600">You can track your order through the tracking number sent to your email.</p>
-              </details>
-
-              <details className="group border-b border-gray-200 pb-4">
-                <summary className="cursor-pointer text-lg font-medium text-gray-900 group-open:text-[#500073]">
-                  Do you offer international shipping?
-                </summary>
-                <p className="mt-2 text-gray-600">Yes, we offer international shipping to many countries.</p>
-              </details>
-
-              <details className="group border-b border-gray-200 pb-4">
-                <summary className="cursor-pointer text-lg font-medium text-gray-900 group-open:text-[#500073]">
-                  How do I cancel my order?
-                </summary>
-                <p className="mt-2 text-gray-600">Order cancellation is possible within 24 hours of purchase.</p>
-              </details>
-
-              <details className="group border-b border-gray-200 pb-4">
-                <summary className="cursor-pointer text-lg font-medium text-gray-900 group-open:text-[#500073]">
-                  How can I change my password?
-                </summary>
-                <p className="mt-2 text-gray-600">You can reset your password by clicking on 'Forgot Password' on the login page.</p>
-              </details>
+              {/* Submit Button */}
+              <div className="text-center mt-4">
+                <button
+                  type="submit"
+                  className="px-4 py-2 bg-[#500073] text-white rounded-lg hover:bg-[#6a1f9c] transition-colors duration-300"
+                >
+                  Send Message
+                </button>
+              </div>
             </div>
+          </form>
+        </div>
+
+        {/* Right Section with Text and Icon */}
+        <div className="rounded-2xl bg-[#500073] bg-opacity-75 text-white p-8 shadow-lg">
+          <div className="flex items-center mb-6">
+            <FaUser className="text-3xl mr-4" />
+            <h3 className="text-2xl font-semibold">Siap Jadi UMKM Naik Kelas!</h3>
           </div>
+          <p className="text-sm">
+            Kami hadir untuk membantu Anda berkembang. Jangan ragu untuk menghubungi kami
+            jika Anda membutuhkan dukungan lebih lanjut.
+          </p>
         </div>
       </div>
     </section>
   );
 };
 
-export default ContactUs;
+export default ContactForm;

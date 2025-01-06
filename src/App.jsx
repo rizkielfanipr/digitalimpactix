@@ -2,7 +2,9 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import PaketKami from './components/PaketKami';
 import Template from './components/Template';
-import ContactUs from './components/Kontak';
+import Faq from './components/Faq';
+import Contact from './components/Contact';
+import FloatingWhatsApp from './components/Floating';
 
 function App() {
   return (
@@ -11,7 +13,9 @@ function App() {
       <Hero />
       <PaketKami />
       <Template />
-      <ContactUs />
+      <Faq />
+      <Contact />
+      <FloatingWhatsApp />
     </div>
   );
 }
