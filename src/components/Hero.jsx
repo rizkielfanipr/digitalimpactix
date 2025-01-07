@@ -19,7 +19,7 @@ const Hero = () => {
         <div className="absolute top-1/4 left-0 w-64 h-1 bg-[#9b4d96] opacity-25 transform rotate-45"></div>
         <div className="absolute bottom-1/4 right-0 w-64 h-1 bg-[#500073] opacity-25 transform -rotate-45"></div>
 
-        <div className="hero-content text-center relative z-10">
+        <div className="hero-content text-center relative mb-32 z-10">
           <div className="max-w-4xl mx-auto w-full px-4">
             <h1 className="text-2xl sm:text-5xl font-bold font-poppins text-white drop-shadow-lg">
               Bangun Bisnis Kuat dengan Website Keren, Harga Terjangkau!
