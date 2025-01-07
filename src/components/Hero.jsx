@@ -28,7 +28,7 @@ const Hero = () => {
               Tingkatkan visibilitas dan kepercayaan bisnis Anda dengan website yang dirancang khusus untuk
               kebutuhan Anda. Solusi terjangkau untuk kesuksesan jangka panjang.
             </p>
-            <button className="btn btn-primary border-none text-white bg-[#500073] px-6 py-3 text-sm sm:text-base rounded-lg shadow-xl transform transition-transform duration-300 hover:scale-105 hover:bg-[#9b4d96]">
+            <button className="btn btn-primary border-none font-poppins text-white bg-[#500073] px-6 py-3 text-sm sm:text-base rounded-lg shadow-xl transform transition-transform duration-300 hover:scale-105 hover:bg-[#9b4d96]">
               Hubungi Kami
             </button>
           </div>
@@ -36,15 +36,16 @@ const Hero = () => {
       </div>
 
       {/* Section "Kenapa Memilih Kami?" */}
-      <section className="relative -mt-32 font-poppins">
-        <div className="max-w-6xl mx-auto bg-white border rounded-lg p-8 relative z-20">
-          <h2 className="text-2xl sm:text-4xl font-bold text-center font-poppins text-[#500073] mb-6">
-            Kenapa Memilih Kami?
-          </h2>
-          {/* Gunakan FeatureList */}
-          <FeatureList />
-        </div>
-      </section>
+      <section className="relative -mt-20 md:-mt-32 font-poppins">
+  <div className="max-w-6xl mx-auto bg-white border rounded-lg p-6 md:p-8 relative z-20 mx-6 md:mx-auto">
+    <h2 className="text-2xl sm:text-4xl font-bold text-center font-poppins text-[#500073] mb-6">
+      Kenapa Memilih Kami?
+    </h2>
+    {/* Gunakan FeatureList */}
+    <FeatureList />
+  </div>
+</section>
+
     </>
   );
 };
