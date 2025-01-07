@@ -36,8 +36,8 @@ const Hero = () => {
       </div>
 
       {/* Section "Kenapa Memilih Kami?" */}
-      <section className="relative -mt-20 md:-mt-32 font-poppins">
-  <div className="max-w-6xl mx-auto bg-white border rounded-lg p-6 md:p-8 relative z-20 mx-6 md:mx-auto">
+      <section className="relative -mt-20 mx-6 md:-mt-32 font-poppins">
+  <div className="max-w-6xl mx-auto bg-white border rounded-lg p-6 md:p-8 relative z-20 md:mx-auto">
     <h2 className="text-2xl sm:text-4xl font-bold text-center font-poppins text-[#500073] mb-6">
       Kenapa Memilih Kami?
     </h2>
