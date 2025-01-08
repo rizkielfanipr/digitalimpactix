@@ -1,4 +1,6 @@
+import { useState } from "react";
 import { FaCheckCircle, FaTimesCircle, FaArrowRight } from "react-icons/fa";
+import Modal from "./Modal";
 
 const packages = [
   {
@@ -58,7 +60,7 @@ const packages = [
   },
 ];
 
-const PackageCard = ({ name, price, services }) => (
+const PackageCard = ({ name, price, services, onSelect }) => (
   <div className="border rounded-lg p-4 hover:shadow-md transition-shadow duration-300">
     <h3 className="text-lg font-semibold text-[#500073]">{name}</h3>
     <p className="text-xl font-extrabold text-[#500073] mb-4">{price}</p>
@@ -70,15 +72,21 @@ const PackageCard = ({ name, price, services }) => (
           ) : (
             <FaTimesCircle className="text-red-500" />
           )}
-          <span className={`text-sm ${service.available ? "text-gray-700" : "text-gray-400 line-through"}`}>
+          <span
+            className={`text-sm ${
+              service.available ? "text-gray-700" : "text-gray-400 line-through"
+            }`}
+          >
             {service.name}
           </span>
         </li>
       ))}
     </ul>
-    {/* Tombol Pilih Paket */}
     <div className="mt-4 text-center">
-      <button className="flex items-center justify-center px-4 py-2 bg-[#500073] text-white rounded-lg hover:bg-[#6a1f9c] transition-colors duration-300">
+      <button
+        onClick={onSelect}
+        className="flex items-center justify-center px-4 py-2 bg-[#500073] text-white rounded-lg hover:bg-[#6a1f9c] transition-colors duration-300"
+      >
         <span>Pilih Paket</span>
         <FaArrowRight className="ml-2" />
       </button>
@@ -87,6 +95,14 @@ const PackageCard = ({ name, price, services }) => (
 );
 
 const PaketKami = () => {
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [selectedPackage, setSelectedPackage] = useState(null);
+
+  const handleSelect = (pkg) => {
+    setSelectedPackage(pkg);
+    setModalOpen(true);
+  };
+
   return (
     <section className="font-poppins py-12">
       <div className="max-w-6xl mx-auto px-4">
@@ -100,10 +116,17 @@ const PaketKami = () => {
               name={pkg.name}
               price={pkg.price}
               services={pkg.services}
+              onSelect={() => handleSelect(pkg)}
             />
           ))}
         </div>
       </div>
+
+      <Modal
+        isOpen={isModalOpen}
+        onClose={() => setModalOpen(false)}
+        selectedPackage={selectedPackage}
+      />
     </section>
   );
 };
